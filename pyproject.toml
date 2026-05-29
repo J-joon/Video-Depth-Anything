@@ -1,0 +1,41 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "video-depth-anything"
+version = "0.1.0"
+description = "Video Depth Anything for consistent depth estimation on arbitrarily long videos."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { file = "LICENSE" }
+authors = [
+  { name = "ByteDance" },
+]
+dependencies = [
+  "numpy>=1.24",
+  "torch>=2.7,<3",
+  "torchvision>=0.22,<0.25",
+  "opencv-python",
+  "matplotlib",
+  "pillow",
+  "imageio==2.37.0",
+  "imageio-ffmpeg==0.4.7",
+  "decord",
+  "einops>=0.8.0",
+  "easydict",
+  "setuptools>=69,<81",
+  "tqdm",
+  "OpenEXR==3.3.1",
+]
+
+[project.optional-dependencies]
+xformers = [
+  "xformers",
+]
+
+[project.urls]
+Repository = "https://github.com/J-joon/Video-Depth-Anything"
+
+[tool.hatch.build.targets.wheel]
+packages = ["video_depth_anything", "utils", "loss"]
